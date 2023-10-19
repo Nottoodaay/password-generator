@@ -1,0 +1,21 @@
+.optionsContainer{
+    width: 540px;
+    height: 528px;
+
+    background-color: rgba(36, 35, 44, 1);
+    color: white;
+
+
+    .strengthBox{
+        width: 10px;
+        height: 28px;
+
+        border: 2px solid rgba(230, 229, 234, 1);
+    }
+
+    .checkBoxContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
