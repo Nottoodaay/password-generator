@@ -3,13 +3,15 @@ import './OptionsContainer.scss'
 
 export const OptionsContainer = () => {
     const [password, setPassword] = useState<string>('')
+    const [passwordLength, setPasswordLength] = useState<number>(0)
+    
     const [upperCase, setUpperCase] = useState<boolean>(false)
     const [lowerCase, setLowerCase] = useState<boolean>(false)
     const [numbers, setNumbers] = useState<boolean>(false)
     const [symbols, setSymbols] = useState<boolean>(false)
+    
     const [passwordStrength, setPasswordStrength] = useState<string>('')
     const [strengthNumber, setStrengthNumber] = useState<number>(0)
-
     const [color, setColor] = useState<string>('')
 
     const generateRandomPassword = () =>{
@@ -21,7 +23,7 @@ export const OptionsContainer = () => {
         if(numbers) charSet += '0123456789'
         if(symbols) charSet += '!@#$%^&*()'
 
-        for(let i = 0; i < 8; i++){
+        for(let i = 0; i < passwordLength; i++){
             newPAssword += charSet.charAt(
                 Math.floor(Math.random() * charSet.length)
             ) 
@@ -63,6 +65,16 @@ export const OptionsContainer = () => {
     <div className="optionsContainer">
         
         <div>{password}</div>
+
+        <input
+         type='range' 
+         min='0'
+         max='20' 
+         step={1} 
+         value={passwordLength} 
+         onChange={e=>setPasswordLength(parseInt(e.target.value))} 
+         />
+        <p>{passwordLength}</p>
 
         <div className='checkBoxContainer'>
             <div>
