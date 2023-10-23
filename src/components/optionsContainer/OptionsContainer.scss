@@ -1,21 +1,210 @@
-.optionsContainer{
-    width: 540px;
-    height: 528px;
 
-    background-color: rgba(36, 35, 44, 1);
-    color: white;
+.body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
 
 
-    .strengthBox{
-        width: 10px;
-        height: 28px;
-
-        border: 2px solid rgba(230, 229, 234, 1);
+    h1{
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(129, 125, 146, 1);
     }
 
-    .checkBoxContainer{
+    .passwordContainer{
+        width: 344px;
+        height: 64px;
+
+        background-color: rgba(36, 35, 44, 1);
+
         display: flex;
-        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        h2{
+            margin-left: 16px;
+            font-size: 24px;
+            font-weight: 700;
+            color: rgba(230, 229, 234, 1);
+        }
+
+        div{
+            cursor: pointer;
+
+            width: 18px;
+            height: 20px;
+
+            margin-right: 16px;
+
+            background-image: url(../../assets/icon-copy.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     }
 
+    .optionsContainer{
+        width: 344px;
+        height: 424px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        background-color: #24232C;
+        color: white;
+
+        .rangeContainer{
+            width: 311px;
+            height: 67px;
+
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 8px;
+
+            .charecterLengthContainer{
+                width: 300px;
+                height: 30px;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                margin: 16px;
+
+                h3{
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: rgba(230, 229, 234, 1);
+                }
+
+                div{
+                    font-size: 24px;
+                    font-weight: 700;
+                    color: rgba(164, 255, 175, 1);
+                }
+            }
+
+
+            input[type="range"] {
+                -webkit-appearance: none;
+                margin-right: 15px;
+                width: 311px;
+                height: 8px;
+                background: rgba(255, 255, 255, 0.6);
+                background-image: linear-gradient(#ff4500, #ff4500);
+                background-size: 50% 100%;
+                background-repeat: no-repeat;
+            }
+            
+            input[type="range"]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                height: 28px;
+                width: 28px;
+                border-radius: 50%;
+                background:rgba(230, 229, 234, 1);
+                cursor: pointer;
+                box-shadow: 0 0 2px 0 #555;
+                transition: background .3s ease-in-out;
+            }
+            
+            input[type=range]::-webkit-slider-runnable-track  {
+                -webkit-appearance: none;
+                box-shadow: none;
+                border: none;
+                background: transparent;
+            }
+        }
+
+        .checkBoxContainer{
+            width: 311px;
+            height: 132px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            margin: 32px;
+
+            div{
+                width: 280px;
+                height: 21px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+            input[type="checkbox"]{
+                width: 20px;
+                height: 20px;
+
+                accent-color: rgba(164, 255, 175, 1);
+                }
+
+                .label{
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    color: rgba(230, 229, 234, 1);
+                } 
+            }
+        }
+
+        .passwordStrength{
+            width: 311px;
+            height: 56px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(24, 23, 31, 1);
+
+            h4{
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 21.12px;
+                    color: rgba(129, 125, 146, 1);
+                    margin-left: 16px;
+                }
+
+            .strengthBoxContainer{
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                margin-right: 16px;
+
+                .passwordStrengthText{
+                    font-size: 15px;
+                    font-weight: 700;
+                    line-height: 23.76px;
+
+                    color: rgba(230, 229, 234, 1);
+
+                }
+
+                .strengthBox{
+                width: 10px;
+                height: 28px;
+
+                border: 2px solid rgba(230, 229, 234, 1);
+                background-color: rgba(24, 23, 31, 1);
+                }
+            }
+        }
+
+        .generateBtn{
+            width: 311px;
+            height: 56px;
+            margin: 16px;
+
+            background-color: rgba(164, 255, 175, 1);
+            color: rgba(36, 35, 44, 1);
+
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 21.12px;
+        }
+    }
 }
+

@@ -4,9 +4,6 @@ import './App.css'
 import { OptionsContainer } from './components/optionsContainer/OptionsContainer'
 
 function App() {
-
-
-
   return (
     <>
       <OptionsContainer/>

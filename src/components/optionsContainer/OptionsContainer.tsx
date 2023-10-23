@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './OptionsContainer.scss'
+
+import { InputTypeRange } from '../../atoms/InputTypeRange'
 
 export const OptionsContainer = () => {
     const [password, setPassword] = useState<string>('')
@@ -30,10 +32,9 @@ export const OptionsContainer = () => {
         }
 
         setPassword(newPAssword)
-        checkPasswordStrength()
     }
 
-    const checkPasswordStrength = () =>{
+    useEffect(()=>{
         let bgColorCheck = 0
 
         if(upperCase) bgColorCheck += 1
@@ -41,13 +42,18 @@ export const OptionsContainer = () => {
         if(numbers) bgColorCheck += 1
         if(symbols) bgColorCheck += 1
 
+        if(bgColorCheck == 0){
+            setPasswordStrength('')
+            setColor('')
+        }
+
         if(bgColorCheck == 1){
-            setPasswordStrength('TOO WEAK')
+           setPasswordStrength('TOO WEAK')
            setColor('#A4FFAF')
         } 
         if(bgColorCheck == 2){
             setPasswordStrength('WEAK')
-             setColor('#F64A4A')
+            setColor('#F8CD65')
         } 
         if(bgColorCheck == 3){
             setPasswordStrength('MEDIUM')
@@ -55,67 +61,82 @@ export const OptionsContainer = () => {
         } 
         if(bgColorCheck == 4){
             setPasswordStrength('STRONG')
-            setColor('#F8CD65')
+            setColor('#F64A4A')
         } 
-        
+
         setStrengthNumber(bgColorCheck)
-    }
+    },[upperCase, lowerCase, numbers, symbols])
 
   return (
-    <div className="optionsContainer">
-        
-        <div>{password}</div>
+    <div className='body'>
 
-        <input
-         type='range' 
-         min='0'
-         max='20' 
-         step={1} 
-         value={passwordLength} 
-         onChange={e=>setPasswordLength(parseInt(e.target.value))} 
-         />
-        <p>{passwordLength}</p>
+    <h1>Password Generator</h1>
+
+    <div className='passwordContainer'>
+        <h2>
+            {password ? password : 'PTx1f5DaFX'}
+        </h2>
+
+        <div></div>
+    </div>
+
+    <div className="optionsContainer">
+        <div className='rangeContainer'>
+            <div className='charecterLengthContainer'>
+                <h3>Charecter Length</h3>
+                <div>
+                    {passwordLength}
+                </div>
+            </div>
+            <InputTypeRange passwordLength={passwordLength} setPasswordLength={setPasswordLength}/>
+        </div>
 
         <div className='checkBoxContainer'>
             <div>
                 <input type="checkbox" onChange={()=>setUpperCase(!upperCase)}/>
-                <label>include uppercase latters</label>
+                <label className='label'>include uppercase latters</label>
             </div>
             <div>    
                 <input type="checkbox" onChange={()=>setLowerCase(!lowerCase)} />
-                <label>include lower latters</label>
+                <label className='label'>include lower latters</label>
             </div>
              <div>   
                 <input type="checkbox" onChange={()=>setNumbers(!numbers)} />
-                <label>include numbers</label>
+                <label className='label'>include numbers</label>
             </div>
             <div>
                 <input type="checkbox" onChange={()=> setSymbols(!symbols)} />
-                <label>include symbol</label>
+                <label className='label'>include symbol</label>
             </div> 
         </div>
 
-        <button onClick={generateRandomPassword}>generate new password</button>
-
-        <div>{passwordStrength}</div>
-
-
+       
         <div className='passwordStrength'>
-            <div className='strengthBox' style={{
-                backgroundColor: 
-                strengthNumber === 0 ? '' : color}}></div>
-            <div className='strengthBox' style={{
-                backgroundColor: 
-                strengthNumber === 1 ? '' : color}} ></div>
-            <div className='strengthBox' style={{
-                backgroundColor: 
-                strengthNumber === 1 ? ''
-                :strengthNumber === 2 ? '' 
-                :color}}></div>
-            <div className='strengthBox' style={{
-                backgroundColor: 
-                strengthNumber === 4 ? color : ''}}></div>
+            <h4>STRENGTH</h4>
+
+            <div className='strengthBoxContainer'>
+                <h4 className='passwordStrengthText'>{passwordStrength}</h4>
+
+                <div className='strengthBox' style={{
+                    backgroundColor: 
+                    strengthNumber === 0 ? '' : color}}></div>
+                
+                <div className='strengthBox' style={{
+                    backgroundColor: 
+                    strengthNumber === 1 ? '' : color}} ></div>
+                <div className='strengthBox' style={{
+                    backgroundColor: 
+                    strengthNumber === 1 ? ''
+                    :strengthNumber === 2 ? '' 
+                    :color}}></div>
+                <div className='strengthBox' style={{
+                    backgroundColor: 
+                    strengthNumber === 4 ? color : ''}}></div>
+            </div> 
         </div>
+        
+        <button className='generateBtn'  onClick={generateRandomPassword}>GENERATE</button>
+    </div>
     </div>
   )
 }
