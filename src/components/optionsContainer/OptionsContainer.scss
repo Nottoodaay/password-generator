@@ -4,6 +4,9 @@
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    
+    margin-top: 40px;
+    margin-bottom: 20px;
 
 
     h1{
@@ -204,6 +207,119 @@
             font-size: 16px;
             font-weight: 700;
             line-height: 21.12px;
+        }
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    .body{
+        gap: 24px;
+        
+
+        h1{
+        font-size: 24px;
+        }
+    
+        .passwordContainer{
+            width: 540px;
+            height: 80px;
+    
+            h2{
+                margin-left: 32px;
+                font-size: 32px;
+            }
+    
+            div{
+                width: 21px;
+                height: 24px;
+    
+                margin-right: 32px;
+            }
+        }
+    
+        .optionsContainer{
+            width: 540px;
+            height: 528px;
+
+            gap: 32px;
+    
+            .rangeContainer{
+                width: 476px;
+                height: 80px;
+
+                gap: 8px;
+    
+                .charecterLengthContainer{
+                    width: 476px;
+                    height: 43px;
+    
+                    margin: 32px;
+    
+                    h3{
+                        font-size: 18px;
+                    }
+    
+                    div{
+                        font-size: 32px;
+                    }
+                }
+    
+    
+                input[type="range"] {
+                    width: 476px;
+                    height: 8px;
+                }
+            }
+    
+            .checkBoxContainer{
+                width: 476px;
+                height: 132px;
+
+                gap: 16px;
+    
+                margin: 32px;
+    
+                div{
+                    width: 315px;
+                    height: 21px;
+
+                    gap: 24px;
+    
+                    .label{
+                        font-size: 18px;
+                    } 
+                }
+            }
+    
+            .passwordStrength{
+                width: 476px;
+                height: 72px;
+    
+                h4{
+                        font-size: 18px;
+                        margin-left: 32px;
+                    }
+    
+                .strengthBoxContainer{
+                    gap: 8px;
+    
+                    margin-right: 32px;
+    
+                    .passwordStrengthText{
+                        font-size: 24px;
+                    }
+    
+                }
+            }
+    
+            .generateBtn{
+                width: 476px;
+                height: 65px;
+                margin: 32px;
+    
+                font-size: 18px;
+            }
         }
     }
 }
