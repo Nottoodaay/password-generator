@@ -97,7 +97,7 @@
                 width: 311px;
                 height: 8px;
                 background: rgba(255, 255, 255, 0.6);
-                background-image: linear-gradient(#ff4500, #ff4500);
+                background-image: linear-gradient(to right, rgb(164, 255, 175) , rgb(164, 255, 175));
                 background-size: 50% 100%;
                 background-repeat: no-repeat;
             }
@@ -215,8 +215,6 @@
 @media screen and (min-width: 1200px) {
     .body{
         gap: 24px;
-        
-
         h1{
         font-size: 24px;
         }
@@ -274,16 +272,13 @@
     
             .checkBoxContainer{
                 width: 476px;
-                height: 132px;
+                height: 100px;
 
                 gap: 16px;
-    
-                margin: 32px;
     
                 div{
                     width: 315px;
                     height: 21px;
-
                     gap: 24px;
     
                     .label{
@@ -295,7 +290,7 @@
             .passwordStrength{
                 width: 476px;
                 height: 72px;
-    
+                
                 h4{
                         font-size: 18px;
                         margin-left: 32px;
@@ -303,9 +298,8 @@
     
                 .strengthBoxContainer{
                     gap: 8px;
-    
                     margin-right: 32px;
-    
+
                     .passwordStrengthText{
                         font-size: 24px;
                     }
@@ -316,7 +310,6 @@
             .generateBtn{
                 width: 476px;
                 height: 65px;
-                margin: 32px;
     
                 font-size: 18px;
             }
@@ -324,3 +317,10 @@
     }
 }
 
+
+.generateBtn:hover{
+    cursor: pointer;
+    background-color: rgba(36, 35, 44, 1)!important;
+    color: rgba(164, 255, 175, 1)!important;
+    border: 2px solid rgba(164, 255, 175, 1);
+}
